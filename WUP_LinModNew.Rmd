@@ -102,19 +102,42 @@ summary.lm(model2.2)
 
 #### predict model.2 at target point
 
+```{r}
+targetpoint = data.frame(GRIP=94, ARM=88)
+prediction = predict(model2.2, targetpoint, interval = 'prediction')
+print(prediction)
+```
+at ARM=88, GRIP=94, the predicted SIMS score is 0.71.95% confidence interval for that score is SIMS between -1.73 and 3.19
+
+
+
 #### now add the model fit to our plot for model.2
-  
+
 
 
 ## Model 3 SIM~ARM+GRIP
 
+```{r}
+model3.3 = lm(SIMS~ARM+GRIP, data=data)
+summary(model3.3)
+```
+
+both have are significantly different from 0 
+
 ### Numerical results (cor)
 
-`
+```{r}
+cor(data)
+````
   
+  numbers should be same as
 ### Inferential  (Build 2-dimentional model.3)
 
 #### predict model.3 at target point
+
+```{r}
+predict(model3.3, targetpoint,interval='prediction' )
+```
   
 
 ## Comparing nested models ANOVA Test
@@ -123,4 +146,9 @@ summary.lm(model2.2)
 ### Model.2 vs Model.3
 
 ## Informally compare Model.1 with model.2
+
+```{r}
+
+anova_result = 
+```
 
